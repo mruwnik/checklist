@@ -2,10 +2,10 @@
   (:require [com.stuartsierra.component :as component]
             [checklist.core :refer [render]]))
 
-(defrecord UIComponent []
+(defrecord UIComponent [sente]
   component/Lifecycle
   (start [component]
-    (render)
+    (render (:chsk-send! sente))
     component)
   (stop [component]
     component))

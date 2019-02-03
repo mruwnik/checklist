@@ -4,4 +4,5 @@
 (defn main-panel []
   (let [name (re-frame/subscribe [:name])]
     (fn []
-      [:div "Hello from " @name])))
+      [:div "Hello from " @name
+       [:button {:on-click #(re-frame.core/dispatch [:ping :me])} "asd"]])))
