@@ -8,7 +8,9 @@
     (when-not (:running this)
       (println "Shell command:" (str/join " " command))
       (future (apply clojure.java.shell/sh command)))
-    (assoc this :running true)))
+    (assoc this :running true))
+  (stop [this]
+    (println "Stopping shell command:" (str/join " " command))))
 
 (defn shell-component [& cmd]
   (->ShellComponent cmd))
